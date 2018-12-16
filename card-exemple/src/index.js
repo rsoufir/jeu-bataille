@@ -10,8 +10,6 @@ import './index.css';
 let store = createStore(reducers, applyMiddleware(thunk))
 
 
-
-
 class App extends React.Component{
     render(){
         return(

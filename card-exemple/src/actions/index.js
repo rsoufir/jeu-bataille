@@ -1,8 +1,23 @@
 import axios from "axios";
 
+export function loadDeck(){
+    return(dispatch)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1").then((response)=>{
+            dispatch(loadDeckAction(response.data.deck_id));
+        })
+    }
+}
+
+export function loadDeckAction(deck){
+    return{
+        type:"LOAD_DECK",
+        deck:deck
+    }
+}
+
 export function loadCard1(){
     return(dispatch)=>{
-        return axios.get("https://deckofcardsapi.com/api/deck/62j7z7sr4j6d/draw/?count=1").then((response)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/kyqrwi5rhf20/draw/?count=1").then((response)=>{
             dispatch(changeCard1(response.data.cards[0].images.png));
         })
     }
@@ -17,7 +32,7 @@ export function changeCard1(card1){
 
 export function loadCard2(){
     return(dispatch)=>{
-        return axios.get("https://deckofcardsapi.com/api/deck/62j7z7sr4j6d/draw/?count=1").then((response)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/kyqrwi5rhf20/draw/?count=1").then((response)=>{
             dispatch(changeCard2(response.data.cards[0].images.png));
         })
     }

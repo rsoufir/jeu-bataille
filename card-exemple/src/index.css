@@ -27,3 +27,9 @@ body{
 .oneCart {
   float: left;
 }
+
+.new-deck {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 40px;
+} 

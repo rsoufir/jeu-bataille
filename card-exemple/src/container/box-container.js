@@ -6,7 +6,7 @@ import Box from "../component/box.js";
 class BoxCon extends React.Component{
     render(){
         return(
-            <Box handleClick1={this.props.loadCard1} handleClick2={this.props.loadCard2} card1={this.props.card1} card2={this.props.card2}></Box>
+            <Box handleClickLoadDeck={this.props.loadDeck} handleClick1={this.props.loadCard1} handleClick2={this.props.loadCard2} card1={this.props.card1} card2={this.props.card2} deck={this.props.deck}></Box>
         )
     }
 }

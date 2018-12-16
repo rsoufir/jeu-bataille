@@ -1,5 +1,7 @@
 let defaultState={
-    card1:""
+    card1:"",
+    card2:"",
+    deck:""
 }
 
 const mainReducer=(state=defaultState,action)=>{
@@ -13,6 +15,12 @@ const mainReducer=(state=defaultState,action)=>{
         return{
             ...state,
             card2:action.card2
+        }
+    }
+    if(action.type==="LOAD_DECK"){
+        return{
+            ...state,
+            deck:action.deck
         }
     }
 
