@@ -44,3 +44,33 @@ export function changeCard2(card2){
         card2:card2
     }
 }
+
+export function loadPile1(deck_id){
+    return(dispatch)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/" + deck_id + "/pile/playerone/list/").then((response)=>{
+            dispatch(changePile1(response.data.piles.playerone.remaining));
+        })
+    }
+}
+
+export function changePile1(pile1){
+    return{
+        type:"CHANGE_PILE1",
+        pile1:pile1
+    }
+}
+
+export function loadPile2(deck_id){
+    return(dispatch)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/" + deck_id + "/pile/playertwo/list/").then((response)=>{
+            dispatch(changePile2(response.data.piles.playertwo.remaining));
+        })
+    }
+}
+
+export function changePile2(pile2){
+    return{
+        type:"CHANGE_PILE2",
+        pile2:pile2
+    }
+}

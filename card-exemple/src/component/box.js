@@ -17,6 +17,14 @@ class Box extends React.Component {
                 	<img alt="card2" src={this.props.card2} />
                 	<button onClick={()=>{this.props.handleClick2(this.props.deck)}}>Player 2</button>
                 </div>
+                <div className="oneCart">
+                    <p>Nombre de cartes de la pile : <br/> {this.props.pile1}</p>
+                    <button onClick={()=>{this.props.handleClick3(this.props.deck)}}>Pile 1</button>
+                </div>
+                <div className="oneCart">
+                    <p>Nombre de cartes de la pile : <br/> {this.props.pile2}</p>
+                    <button onClick={()=>{this.props.handleClick4(this.props.deck)}}>Pile 2</button>
+                </div>
             </div>
         )
     }
