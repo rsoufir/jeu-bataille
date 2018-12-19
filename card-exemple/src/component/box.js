@@ -11,11 +11,11 @@ class Box extends React.Component {
                 </div>
                 <div className="oneCart">
                 	<img alt="card1" src={this.props.card1} />
-                	<button onClick={()=>{this.props.handleClick1()}}>Player 1</button>
+                	<button onClick={()=>{this.props.handleClick1(this.props.deck)}}>Player 1</button>
                 </div>
                 <div className="oneCart">
                 	<img alt="card2" src={this.props.card2} />
-                	<button onClick={()=>{this.props.handleClick2()}}>Player 2</button>
+                	<button onClick={()=>{this.props.handleClick2(this.props.deck)}}>Player 2</button>
                 </div>
             </div>
         )

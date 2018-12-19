@@ -15,9 +15,9 @@ export function loadDeckAction(deck){
     }
 }
 
-export function loadCard1(){
+export function loadCard1(deck_id){
     return(dispatch)=>{
-        return axios.get("https://deckofcardsapi.com/api/deck/kyqrwi5rhf20/draw/?count=1").then((response)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/" + deck_id + "/draw/?count=1").then((response)=>{
             dispatch(changeCard1(response.data.cards[0].images.png));
         })
     }
@@ -30,9 +30,9 @@ export function changeCard1(card1){
     }
 }
 
-export function loadCard2(){
+export function loadCard2(deck_id){
     return(dispatch)=>{
-        return axios.get("https://deckofcardsapi.com/api/deck/kyqrwi5rhf20/draw/?count=1").then((response)=>{
+        return axios.get("https://deckofcardsapi.com/api/deck/" + deck_id + "/draw/?count=1").then((response)=>{
             dispatch(changeCard2(response.data.cards[0].images.png));
         })
     }
