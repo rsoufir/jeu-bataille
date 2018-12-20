@@ -37,6 +37,13 @@ const mainReducer=(state=defaultState,action)=>{
             pile2:action.pile2
         }
     }
+    if(action.type==="WHAT_PLAYER_WIN"){
+        return{
+            ...state,
+            player1Win: action.player1Win,
+            player2Win: action.player2Win
+        }
+    }
 
     else{
         return{

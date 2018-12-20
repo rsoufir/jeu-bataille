@@ -92,8 +92,6 @@ export function addPile(cardPlayer1, cardPlayer2, deck_id){
     const array = ['0','J', 'Q', 'K', 'A'];
     if(cardPlayer1 === cardPlayer2){
         // égalité
-        console.log(cardPlayer1Symbol);
-        console.log(cardPlayer2Symbol);
         return (dispatch)=>{
             dispatch(addInPile1(deck_id, cardPlayer1Symbol))
             dispatch(addInPile2(deck_id, cardPlayer2Symbol))
@@ -140,29 +138,21 @@ export function checkIfWinner(piles, remaining){
         }else if(piles.playerone.remaining < piles.playertwo.remaining){
             // joueur 2 gagne
             playerTwoWinnerOrNot = true;
+        }else{
+            alert("Il y a égalité");
+            window.location.reload();
         }
     }
-    console.log(playerOneWinnerOrNot);
-    console.log(playerTwoWinnerOrNot);
     return (dispatch)=>{return dispatch(checkWin(playerOneWinnerOrNot, playerTwoWinnerOrNot))};
 }
 
-export function checkWin(player1Win, player2Wiin){
+export function checkWin(player1Win, player2Win){
     return{
         type:"WHAT_PLAYER_WIN",
         player1Win:player1Win,
-        player2Wiin:player2Wiin
+        player2Win:player2Win
     }
 }
-
-// export function addPileAction(cardPlayer1, cardPlayer2){
-    
-//     return{
-//         type:"BATAILLE",
-//         cardPlayer1:cardPlayer1,
-//         cardPlayer2:cardPlayer2
-//     }
-// }
 
 function arrayContains(needle, arrhaystack)
 {
