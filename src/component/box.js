@@ -41,13 +41,13 @@ class Box extends React.Component {
                 <div className="cards-container">
                     <div className="oneCart">
                         <div>
-                            <img alt="card-player-1" src={this.props.card1} />
+                            <img className="resize" alt="card-player-1" src={this.props.card1} />
                         </div>
                         <button onClick={()=>{this.props.handleClick1(this.props.deck)}}>Joueur 1</button>
                     </div>
                     <div className="oneCart">
                         <div>
-                            <img alt="card-player-1" src={this.props.card2} />
+                            <img className="resize" alt="card-player-1" src={this.props.card2} />
                         </div>
                         <button onClick={()=>{this.props.handleClick2(this.props.deck)}}>Joueur 2</button>
                     </div>

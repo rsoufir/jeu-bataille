@@ -36,7 +36,9 @@ h1 {
 .loadDeck {
   text-align: center;
 }
-
+.resize{
+  width: 20%;
+}
 .wrapper{
   width: 100%;
   height:100vh;
