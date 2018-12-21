@@ -6,6 +6,9 @@ body{
 }
 
 .wrapper {
+  width: auto!important;
+  height: auto!important;
+  min-height: 100vh!important;
   box-sizing: border-box;
   border: 10px solid #FDF035;
   position: relative;
@@ -37,15 +40,6 @@ h1 {
 .wrapper{
   width: 100%;
   height:100vh;
-}
-
-.box{
-  width:600px;
-  height:600px;
-  display:flex;
-  flex-direction:column;
-  justify-content: center;
-  align-items: center;
 }
 
 .oneCart {

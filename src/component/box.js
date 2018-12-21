@@ -29,7 +29,7 @@ class Box extends React.Component {
                     <div className={this.props.loading ? 'loader' : 'hidden'}></div>
                 </div>
                 <h1>La Bataille (pas pour les nuls !)</h1>
-                <div className={this.props.deck == '' ? 'loadDeck' : 'hidden'}>
+                <div className={this.props.deck === '' ? 'loadDeck' : 'hidden'}>
                     <button onClick={()=>{this.props.handleClickLoadDeck()}}>Démarrer une partie de jeu</button>
                 </div>
                 <div className="pileCart">
@@ -41,13 +41,13 @@ class Box extends React.Component {
                 <div className="cards-container">
                     <div className="oneCart">
                         <div>
-                            <img src={this.props.card1} />
+                            <img alt="card-player-1" src={this.props.card1} />
                         </div>
                         <button onClick={()=>{this.props.handleClick1(this.props.deck)}}>Joueur 1</button>
                     </div>
                     <div className="oneCart">
                         <div>
-                            <img src={this.props.card2} />
+                            <img alt="card-player-1" src={this.props.card2} />
                         </div>
                         <button onClick={()=>{this.props.handleClick2(this.props.deck)}}>Joueur 2</button>
                     </div>
