@@ -6,8 +6,9 @@ import thunk from "redux-thunk";
 import reducers from "./reducers/index.js";
 import Boxcon from './container/box-container.js';
 import './index.css';
+import logger from 'redux-logger'
 
-let store = createStore(reducers, applyMiddleware(thunk))
+let store = createStore(reducers, applyMiddleware(thunk, logger))
 
 
 class App extends React.Component{

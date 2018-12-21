@@ -24,6 +24,10 @@ class Box extends React.Component {
         }
         return (
             <div className="wrapper">
+                <div className={this.props.loading ? 'wrapper-opacity' : 'hidden'}></div>
+                <div className="loaderContainer">
+                    <div className={this.props.loading ? 'loader' : 'hidden'}></div>
+                </div>
                 <h1>La Bataille (pas pour les nuls !)</h1>
                 <div className={this.props.deck == '' ? 'loadDeck' : 'hidden'}>
                     <button onClick={()=>{this.props.handleClickLoadDeck()}}>Démarrer une partie de jeu</button>
