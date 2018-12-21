@@ -2,8 +2,8 @@ let defaultState={
     card1:"",
     card2:"",
     deck:"",
-    pile1:"",
-    pile2:""
+    pile1: 0,
+    pile2: 0
 }
 
 const mainReducer=(state=defaultState,action)=>{

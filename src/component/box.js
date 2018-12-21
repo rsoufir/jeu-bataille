@@ -24,29 +24,34 @@ class Box extends React.Component {
         }
         return (
             <div className="wrapper">
-                <div className="loadDeck">
-                    <div className="new-deck">{this.props.deck}</div>
-                    <button onClick={()=>{this.props.handleClickLoadDeck()}}>Charger un nouveau deck avant de jouer</button>
-                    <p></p>
+                <h1>La Bataille (pas pour les nuls !)</h1>
+                <div className={this.props.deck == '' ? 'loadDeck' : 'hidden'}>
+                    <button onClick={()=>{this.props.handleClickLoadDeck()}}>Démarrer une partie de jeu</button>
                 </div>
-                <div className="oneCart">
-                    <img alt="card1" src={this.props.card1} />
-                    <button onClick={()=>{this.props.handleClick1(this.props.deck)}}>Player 1</button>
+                <div className="pileCart">
+                    Score du joueur 1 : <b>{this.props.pile1}</b>
                 </div>
-                <div className="oneCart">
-                    <img alt="card2" src={this.props.card2} />
-                    <button onClick={()=>{this.props.handleClick2(this.props.deck)}}>Player 2</button>
+                <div className="pileCart">
+                    Score du joueur 2 : <b>{this.props.pile2}</b>
                 </div>
-                <div className="oneCart">
-                    <p>Nombre de cartes de la pile : <br/> {this.props.pile1}</p>
-                    {/* <button onClick={()=>{this.props.handleClick3(this.props.deck)}}>Pile 1</button> */}
+                <div className="cards-container">
+                    <div className="oneCart">
+                        <div>
+                            <img src={this.props.card1} />
+                        </div>
+                        <button onClick={()=>{this.props.handleClick1(this.props.deck)}}>Joueur 1</button>
+                    </div>
+                    <div className="oneCart">
+                        <div>
+                            <img src={this.props.card2} />
+                        </div>
+                        <button onClick={()=>{this.props.handleClick2(this.props.deck)}}>Joueur 2</button>
+                    </div>
                 </div>
-                <div className="oneCart">
-                    <p>Nombre de cartes de la pile : <br/> {this.props.pile2}</p>
-                    {/* <button onClick={()=>{this.props.handleClick4(this.props.deck)}}>Pile 2</button> */}
-                </div>
-                <div className="oneCart">
-                    <button onClick={()=>{this.props.handleClick5(this.props.card1, this.props.card2, this.props.deck)}}>Bataille</button>
+                <div className="buttonCart">
+                    <button onClick={()=>{this.props.handleClick5(this.props.card1, this.props.card2, this.props.deck)}}>
+                        Lancer une bataille
+                    </button>
                 </div>
             </div>
         )
