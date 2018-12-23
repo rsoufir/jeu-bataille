@@ -58,6 +58,7 @@ export function loadPile1(deck_id){
 
 function addInPile1(deck_id, cards){
     return(dispatch)=>{
+        dispatch(chargement());
         return axios.get("https://deckofcardsapi.com/api/deck/" + deck_id + "/pile/playerone/add/?cards="+cards).then((response)=>{
             dispatch(changePile1(response.data.piles.playerone.remaining));
             dispatch(checkIfWinner(response.data.piles, response.data.remaining));
@@ -66,6 +67,7 @@ function addInPile1(deck_id, cards){
 } 
 function addInPile2(deck_id, cards){
     return(dispatch)=>{
+        dispatch(chargement());
         return axios.get("https://deckofcardsapi.com/api/deck/" + deck_id + "/pile/playertwo/add/?cards="+cards).then((response)=>{
             dispatch(changePile2(response.data.piles.playertwo.remaining));
             dispatch(checkIfWinner(response.data.piles, response.data.remaining));
@@ -134,11 +136,29 @@ export function changePile1(pile1){
 export function checkIfWinner(piles, remaining){
     let playerOneWinnerOrNot = false;
     let playerTwoWinnerOrNot = false;
+    let bataillesRestantes;
+    let scoreOne, scoreTwo;
+    if(piles.playerone === undefined && piles.playertwo === undefined){
+        bataillesRestantes = 26;
+        scoreOne = scoreTwo = 0;
+    }else if(piles.playerone === undefined){
+        scoreOne = 0;
+        scoreTwo = piles.playertwo.remaining;
+        bataillesRestantes = (52-scoreTwo)/2;
+    }else if(piles.playertwo === undefined){
+        scoreTwo = 0;
+        scoreOne = piles.playerone.remaining;
+        bataillesRestantes = (52-scoreOne)/2;
+    }else{
+        scoreOne = piles.playerone.remaining;
+        scoreTwo = piles.playertwo.remaining;
+        bataillesRestantes = (52 - (scoreOne + scoreTwo))/2;
+    } 
     if(remaining === 0){
-        if(piles.playerone.remaining > piles.playertwo.remaining){
+        if(scoreOne > scoreTwo){
             // joueur 1 gagne
             playerOneWinnerOrNot = true;
-        }else if(piles.playerone.remaining < piles.playertwo.remaining){
+        }else if(scoreOne < scoreTwo){
             // joueur 2 gagne
             playerTwoWinnerOrNot = true;
         }else{
@@ -146,14 +166,17 @@ export function checkIfWinner(piles, remaining){
             window.location.reload();
         }
     }
-    return (dispatch)=>{return dispatch(checkWin(playerOneWinnerOrNot, playerTwoWinnerOrNot))};
+    return (dispatch)=>{return dispatch(checkWin(playerOneWinnerOrNot, playerTwoWinnerOrNot, scoreOne, scoreTwo, bataillesRestantes))};
 }
 
-export function checkWin(player1Win, player2Win){
+export function checkWin(player1Win, player2Win, scoreOne, scoreTwo, bataillesRestantes){
     return{
         type:"WHAT_PLAYER_WIN",
         player1Win:player1Win,
-        player2Win:player2Win
+        player2Win:player2Win,
+        scoreOne: scoreOne,
+        scoreTwo: scoreTwo,
+        bataillesRestantes: bataillesRestantes
     }
 }
 

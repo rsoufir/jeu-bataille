@@ -122,3 +122,19 @@ button {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.fontSize{
+  font-size: 36px;
+}
+.restart{
+  font-size: 2em;
+  color: #FDF035;
+}
+.width100{
+  width: 100% !important;
+}
+
+.nbBataillesRestantes{
+  text-align: center;
+  color: #fff;
+}

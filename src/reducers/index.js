@@ -4,7 +4,8 @@ let defaultState={
     deck:"",
     pile1: 0,
     pile2: 0,
-    loading: false
+    loading: false,
+    bataillesRestantes: 26
 }
 
 const mainReducer=(state=defaultState,action)=>{
@@ -38,20 +39,25 @@ const mainReducer=(state=defaultState,action)=>{
     if(action.type==="CHANGE_PILE1"){
         return{
             ...state,
-            pile1:action.pile1
+            pile1:action.pile1,
+            loading: false
         }
     }
     if(action.type==="CHANGE_PILE2"){
         return{
             ...state,
-            pile2:action.pile2
+            pile2:action.pile2,
+            loading: false
         }
     }
     if(action.type==="WHAT_PLAYER_WIN"){
         return{
             ...state,
             player1Win: action.player1Win,
-            player2Win: action.player2Win
+            player2Win: action.player2Win,
+            scoreOne: action.scoreOne,
+            scoreTwo: action.scoreTwo,
+            bataillesRestantes: action.bataillesRestantes 
         }
     }
 

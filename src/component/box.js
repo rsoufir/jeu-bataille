@@ -5,9 +5,10 @@ class Box extends React.Component {
         if(this.props.player1Win !== undefined && this.props.player1Win){
             return(
             <div className="wrapper">
-                <div className="oneCart">
-                    <p>Joueur 1 gagne la partie</p>
-                    <a href="javascript:window.location.reload()">Rejouer</a>
+                <div className="oneCart width100">
+                    <p className="fontSize">Joueur 1 gagne la partie</p>
+                    <p className="fontSize">Score final - Joueur 1 : <strong>{this.props.scoreOne}</strong> Joueur 2 : <strong>{this.props.scoreTwo}</strong></p>
+                    <a className="restart" href="javascript:window.location.reload()">Rejouer</a>
                 </div>
             </div>
             )
@@ -15,9 +16,10 @@ class Box extends React.Component {
         if(this.props.player2Win !== undefined && this.props.player2Win){
             return(
             <div className="wrapper">
-                <div className="oneCart">
-                    <p>Joueur 2 gagne la partie</p>
-                    <a href="javascript:window.location.reload()">Rejouer</a>
+                <div className="oneCart width100">
+                    <p className="fontSize">Joueur 2 gagne la partie</p>
+                    <p className="fontSize">Score final - Joueur 1 : <strong>{this.props.scoreOne}</strong> Joueur 2 : <strong>{this.props.scoreTwo}</strong></p>
+                    <a className="restart" href="javascript:window.location.reload()">Rejouer</a>
                 </div>
             </div>
             )
@@ -29,6 +31,7 @@ class Box extends React.Component {
                     <div className={this.props.loading ? 'loader' : 'hidden'}></div>
                 </div>
                 <h1>La Bataille (pas pour les nuls !)</h1>
+                <p className="nbBataillesRestantes">Nombre de batailles restantes : {this.props.bataillesRestantes}</p>
                 <div className={this.props.deck === '' ? 'loadDeck' : 'hidden'}>
                     <button onClick={()=>{this.props.handleClickLoadDeck()}}>Démarrer une partie de jeu</button>
                 </div>
