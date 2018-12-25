@@ -162,8 +162,8 @@ export function checkIfWinner(piles, remaining){
             // joueur 2 gagne
             playerTwoWinnerOrNot = true;
         }else{
-            alert("Il y a égalité");
-            window.location.reload();
+            playerOneWinnerOrNot = true;
+            playerTwoWinnerOrNot = true;
         }
     }
     return (dispatch)=>{return dispatch(checkWin(playerOneWinnerOrNot, playerTwoWinnerOrNot, scoreOne, scoreTwo, bataillesRestantes))};

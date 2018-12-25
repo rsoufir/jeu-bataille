@@ -2,6 +2,17 @@ import React from "react";
 
 class Box extends React.Component {
     render() {
+        if((this.props.player1Win !== undefined && this.props.player1Win) && (this.props.player2Win !== undefined && this.props.player2Win)){
+            return(
+            <div className="wrapper">
+                <div className="oneCart width100">
+                    <p className="fontSize">Il y a égalité !</p>
+                    <p className="fontSize">Score final - Joueur 1 : <strong>{this.props.scoreOne}</strong> Joueur 2 : <strong>{this.props.scoreTwo}</strong></p>
+                    <a className="restart" href="javascript:window.location.reload()">Rejouer</a>
+                </div>
+            </div>
+            )
+        }
         if(this.props.player1Win !== undefined && this.props.player1Win){
             return(
             <div className="wrapper">
